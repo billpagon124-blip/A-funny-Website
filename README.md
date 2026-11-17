@@ -1,2 +1,96 @@
-# A-funny-Website
-A relaxing wesite with many cool and funny things
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=e7102f16-165a-46fd-9129-32e29141fce4
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta property="og:image" content="https://random-html-site.netlify.app/.netlify/og-image/b187516e667109d177f95a50a4df578a.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chance Cabinet — a little museum of randomness</title>
+  <meta name="description" content="Roll dice, flip coins, draw palettes, and let fate decide. A playful collection of randomizers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Est. by coincidence</p>
+    <h1>Chance<br /><em>Cabinet</em></h1>
+    <p class="lede">A little museum of randomness. Every drawer holds a different way to let fate decide. Press <kbd>Space</kbd> to shake them all at once.</p>
+    <button class="btn btn-big" id="shake-all">Shake the cabinet</button>
+  </header>
+
+  <main class="grid">
+    <section class="drawer" id="dice">
+      <h2><span>01</span> Dice</h2>
+      <div class="dice-row" id="dice-row"></div>
+      <div class="controls">
+        <label>Dice <input type="number" id="dice-count" min="1" max="6" value="2" /></label>
+        <label>Sides
+          <select id="dice-sides">
+            <option>4</option><option selected>6</option><option>8</option><option>10</option><option>12</option><option>20</option>
+          </select>
+        </label>
+        <button class="btn" data-roll="dice">Roll</button>
+      </div>
+      <p class="meta" id="dice-total">Total: —</p>
+    </section>
+
+    <section class="drawer" id="coin">
+      <h2><span>02</span> Coin</h2>
+      <div class="coin-wrap"><div class="coin" id="coin-face">?</div></div>
+      <div class="controls"><button class="btn" data-roll="coin">Flip</button></div>
+      <p class="meta" id="coin-tally">Heads 0 · Tails 0</p>
+    </section>
+
+    <section class="drawer wide" id="palette">
+      <h2><span>03</span> Palette</h2>
+      <div class="swatches" id="swatches"></div>
+      <div class="controls">
+        <button class="btn" data-roll="palette">Draw palette</button>
+        <span class="hint">Click a swatch to copy its hex</span>
+      </div>
+    </section>
+
+    <section class="drawer" id="number">
+      <h2><span>04</span> Number</h2>
+      <div class="big-number" id="number-out">—</div>
+      <div class="controls">
+        <label>From <input type="number" id="num-min" value="1" /></label>
+        <label>To <input type="number" id="num-max" value="100" /></label>
+        <button class="btn" data-roll="number">Pick</button>
+      </div>
+    </section>
+
+    <section class="drawer" id="decide">
+      <h2><span>05</span> Decider</h2>
+      <textarea id="choices" rows="4" placeholder="One option per line">Pizza
+Tacos
+Ramen
+Salad</textarea>
+      <div class="controls"><button class="btn" data-roll="decide">Decide for me</button></div>
+      <p class="verdict" id="verdict">Fate is waiting…</p>
+    </section>
+
+    <section class="drawer wide" id="prompt">
+      <h2><span>06</span> Oddity</h2>
+      <blockquote id="prompt-out">Open this drawer to receive a strange idea.</blockquote>
+      <div class="controls"><button class="btn" data-roll="prompt">Another oddity</button></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Powered by <code>crypto.getRandomValues()</code> — no fate was harmed.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+<script async src="/.netlify/scripts/ar" data-netlify-deploy-id="6af9d00ac440678e413d1a16" data-netlify-site-id="e7102f16-165a-46fd-9129-32e29141fce4" data-agent-runner-id="6af9cfb54c7366bc61243346"></script>
+<script async src="/.netlify/scripts/hud?variant=public" data-nf-variant="public" data-netlify-site-id="e7102f16-165a-46fd-9129-32e29141fce4" data-app-host="app.netlify.com" data-account-tier="free"></script>
